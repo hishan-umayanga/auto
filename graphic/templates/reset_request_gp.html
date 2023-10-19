@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Password Reset Request
+{% endblock %}
+
+
+{% block content %}
+<body style="background-color:#FFF0F5;">
+<div class="mx-auto" style="width: 700px; padding: 32px 0px">
+    <div class="content-section">
+        <form class="" action="" method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend style="font-size:50px;color:black;margin-left:150px">Password Reset </legend>
+            </fieldset>
+            <p>Forgotten your password? Enter your user name below, and we’ll email instructions for setting a new one.</p>
+            <div class="form-group">
+                <label for="username" style="font-size:20px;color:black;">Username </label><br>
+                <input type="text" class="input input--text" name="username" id="username" style="width: 300px;">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" value="Submit" class="btn btn-outline-info">Request</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+{% endblock %}

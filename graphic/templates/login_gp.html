@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+
+
+{% block content %}
+<body style="background-color:#445069;">
+<div class="mx-auto" style="background-color:#F0F0F0; min-width:30%;min-height:30%;margin: 0 auto;;border: 2px outset black;">
+ <div class="mx-auto" style="width: 350px; padding: 0px 0px; margin-top:0px; " >
+    <div class="content-section">
+        <form class="" action="" method="post" id="post-form">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend style="font-size:30px;color:#445069;margin-left:20px; font-weight: bold;">Account Login</legend>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="username" style="font-size:20px;color:#1D5D9B;font-weight: bold;">Username - </label>
+                <input type="text" class="input input--text" id="username" style="width:300px;" placeholder="User Name...">
+            </div>
+
+            <br>
+            {% include 'password.html' %}
+
+            <br>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn--sub btn--lg">Login</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small  style="font-size:16px;color:black;">
+                Forgot password? <a href="{% url 'reset_gp' %}" class="ml-2">Click here</a>
+            </small>
+        </div>
+        <div class="border-top pt-3">
+            <small  style="font-size:16px;color:black;">
+                Don't have an account? <a href="{% url 'reg_gp' %}" class="ml-2">Sign Up</a>
+            </small>
+        </div>
+    </div>
+ </div>
+</div>
+
+<script>
+    var gpwd_set = new Set();
+/* get user click location */
+/* handling user interactions related to selecting a location based on row (r) and column (c) coordinates. */
+    function onSelect(r, c) {
+        var res = r.toString() + c.toString();
+/* It converts the row and column to strings and concatenates them to 
+form a unique string res representing the location based on the provided row and column. */
+        if (gpwd_set.has(res)) {
+            console.log('true');
+            gpwd_set.delete(res);  /* a deselection action */
+        } else {
+            gpwd_set.add(res);
+        }
+    }
+/* create hidden form */
+
+/* dynamically creates a form, populates it with hidden fields based on the provided parameters,
+ and submits the form */
+
+    function post(path, params, method = 'post') {
+
+       
+        const form = document.getElementById('post-form');
+        form.method = method;
+        form.action = path;
+      /* These hidden fields hold data that needs to be sent to the server when the form is submitted */
+        for (const key in params) {
+            if (params.hasOwnProperty(key)) {
+                const hiddenField = document.createElement('input');
+                hiddenField.type = 'hidden';
+                hiddenField.name = key;
+                hiddenField.value = params[key];
+
+                form.appendChild(hiddenField);
+            }
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+
+
+    // submit post on submit
+    var form = document.getElementById('post-form');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        console.log("form submitted!");
+        post('', {
+            username: document.getElementById('username').value,
+            /* convert set values into a array */
+            password: Array.from(gpwd_set),
+        })
+    });
+</script>
+
+</body>
+{% endblock %}
