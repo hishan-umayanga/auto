@@ -55,7 +55,7 @@ the login page.
 * This project used Django version 4.2.1 and Python version 3.11.3
 
 ## homepage
-
+<img src=" https://github.com/hishan-umayanga/autofill-detection-and-graphical-password-system/blob/master/readme%20img/new%20home.png">
 ## Project
 
 ## Display resposive
