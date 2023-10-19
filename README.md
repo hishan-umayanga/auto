@@ -57,10 +57,15 @@ the login page.
 ## homepage
 ![home page](https://github.com/hishan-umayanga/autofill-detection-and-graphical-password-system/blob/master/readme%20img/new%20home.png)
 ## Project
+![projects](https://github.com/hishan-umayanga/autofill-detection-and-graphical-password-system/blob/master/readme%20img/Screenshot_1.png)
 
 ## Display resposive
+![projects](https://github.com/hishan-umayanga/autofill-detection-and-graphical-password-system/blob/master/readme%20img/Screenshot_3.png)
+![projects](https://github.com/hishan-umayanga/autofill-detection-and-graphical-password-system/blob/master/readme%20img/responive%20g.png)
 
 ## graphical password system
+![projects](https://github.com/hishan-umayanga/autofill-detection-and-graphical-password-system/blob/master/readme%20img/gp%20l.png)
+![projects](https://github.com/hishan-umayanga/autofill-detection-and-graphical-password-system/blob/master/readme%20img/g%20reg.png)
 
 
 
